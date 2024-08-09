@@ -1,23 +1,22 @@
 package asd;
 
-import framework.SimpleJavaFrameworkContext;
+import framework.*;
+import framework.Runnable;
 
 /**
- * TODO Delete it later
+ * 
  */
-public class MyApplication {
+@Service
+public class MyApplication implements Runnable {
 
+	@Autowired
+	private MyServiceOne myServiceOne;
 	public static void main(String[] args) throws Exception{
-		SimpleJavaFrameworkContext fWContext = new SimpleJavaFrameworkContext();
-		fWContext.start(MyApplication.class);
-
-		MyServiceOne one = fWContext.getBean(MyServiceOne.class);
-		MyServiceTwo two = fWContext.getBean(MyServiceTwo.class);
-		one.print();
-		two.print();
-
-
-
+		SimpleJavaFramework.run(MyApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) {
+		myServiceOne.print();
+	}
 }
