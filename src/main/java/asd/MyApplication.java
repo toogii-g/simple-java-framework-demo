@@ -1,16 +1,15 @@
 package asd;
 
 import framework.*;
-import framework.interfaces.Autowired;
+import framework.annotations.Autowired;
 import framework.interfaces.Runnable;
-import framework.interfaces.Service;
 
 import java.util.Arrays;
 
 /**
  *
  */
-@Service
+
 public class MyApplication implements Runnable {
 
 	@Autowired

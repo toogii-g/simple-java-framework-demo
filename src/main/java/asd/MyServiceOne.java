@@ -1,13 +1,16 @@
 package asd;
 
-import framework.interfaces.Service;
+import framework.annotations.Service;
+import framework.annotations.Value;
 
 @Service
 public class MyServiceOne {
 
+    @Value("service-name")
+    private String name;
+
     public void print(){
-        String nameOne = "nameOne";
-        System.out.println(nameOne);
+        System.out.println(name);
     }
 
 }
