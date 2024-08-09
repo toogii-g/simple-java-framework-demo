@@ -1,7 +1,7 @@
 package asd;
 
-import framework.annotations.Autowired;
-import framework.annotations.Service;
+import framework.annotation.Autowired;
+import framework.annotation.Service;
 
 @Service
 public class MyServiceTwo {

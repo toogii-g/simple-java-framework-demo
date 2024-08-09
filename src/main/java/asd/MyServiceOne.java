@@ -1,7 +1,7 @@
 package asd;
 
-import framework.annotations.Service;
-import framework.annotations.Value;
+import framework.annotation.Service;
+import framework.annotation.Value;
 
 @Service
 public class MyServiceOne {
