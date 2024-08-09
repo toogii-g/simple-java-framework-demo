@@ -2,7 +2,7 @@ package asd;
 
 import framework.*;
 import framework.annotation.Autowired;
-import framework.interfaces.Runnable;
+import framework.util.Runnable;
 
 import java.util.Arrays;
 
