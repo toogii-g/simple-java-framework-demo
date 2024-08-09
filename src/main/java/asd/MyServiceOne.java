@@ -1,6 +1,6 @@
 package asd;
 
-import framework.Service;
+import framework.interfaces.Service;
 
 @Service
 public class MyServiceOne {

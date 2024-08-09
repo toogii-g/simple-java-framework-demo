@@ -1,7 +1,7 @@
 package asd;
 
-import framework.Autowired;
-import framework.Service;
+import framework.interfaces.Autowired;
+import framework.interfaces.Service;
 
 @Service
 public class MyServiceTwo {
