@@ -20,6 +20,9 @@ public class MyApplication implements Runnable {
 	private MyScheduledService myScheduledService;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
+
+	@Autowired
+	AppConfig appConfig;
 	public static void main(String[] args) throws Exception{
 		SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
 
@@ -50,5 +53,7 @@ public class MyApplication implements Runnable {
 	public void run(String... args) throws Exception {
 		myServiceOne.print();
 		System.out.println(Arrays.toString(args));
+
+		System.out.println(appConfig.toString());
 	}
 }
