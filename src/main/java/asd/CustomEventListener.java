@@ -1,11 +1,14 @@
 package asd;
 
-import framework.event.EventListener;
 
-public class CustomEventListener implements EventListener<CustomEvent> {
+import framework.annotation.EventListener;
+import framework.annotation.Service;
 
-    @Override
-    public void onEvent(CustomEvent event) {
-        System.out.println("Custom Event Received: " + event.getMessage());
+@Service
+public class CustomEventListener  {
+
+    @EventListener
+    public void handleCustomEvent(CustomEvent event) {
+        System.out.println("Received event: " + event.getMessage());
     }
 }

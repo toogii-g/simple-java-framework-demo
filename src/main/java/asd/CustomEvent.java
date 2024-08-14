@@ -1,8 +1,7 @@
 package asd;
 
-import framework.event.Event;
 
-public class CustomEvent extends Event {
+public class CustomEvent {
     private final String message;
 
     public CustomEvent(String message) {
