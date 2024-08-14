@@ -15,9 +15,9 @@ public class MyApplication implements Runnable {
 	private MyScheduledService myScheduledService;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
-	@Autowired
-	@Qualifier("stripePaymentService")
-	private static PaymentService paymentService;
+	//@Autowired
+	//@Qualifier("stripePaymentService")
+	//private static PaymentService paymentService;
 	@Autowired
 	private MyServiceOne iService;
 	@Autowired
@@ -47,7 +47,7 @@ public class MyApplication implements Runnable {
 		scheduler.schedule(scheduledService);
 
 		// Initialize event publisher
-		//ApplicationEventPublisher eventPublisher = context.getEventPublisher();
+		ApplicationEventPublisher eventPublisher = context.getEventPublisher();
 
 		// Publish a custom event
 		//eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
