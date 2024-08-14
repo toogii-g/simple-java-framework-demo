@@ -44,7 +44,7 @@ public class MyApplication implements Runnable {
 		}
 //		// Use getBean to get MyScheduledService and schedule it
 		MyScheduledService scheduledService = context.getBean(MyScheduledService.class);
-		scheduler.schedule(scheduledService);
+		//scheduler.schedule(scheduledService);
 
 		// Initialize event publisher
 		ApplicationEventPublisher eventPublisher = context.getEventPublisher();
