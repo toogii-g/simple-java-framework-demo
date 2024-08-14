@@ -9,10 +9,10 @@ import framework.util.Scheduler;
 import java.util.Arrays;
 public class MyApplication implements Runnable {
 
-//	@Autowired
-//	private MyServiceOne myServiceOne;
-//	@Autowired
-//	private MyScheduledService myScheduledService;
+	@Autowired
+	private MyServiceOne myServiceOne;
+	@Autowired
+	private MyScheduledService myScheduledService;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
 	@Autowired
@@ -27,24 +27,24 @@ public class MyApplication implements Runnable {
 	AppConfig appConfig;
 
 	public static void main(String[] args) throws Exception{
-	//	SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
+		SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
 
-//		// Schedule tasks using the Scheduler
-//		Scheduler scheduler = new Scheduler();
-//		context.getBean(MyServiceOne.class).print(); // Example usage of getBean
-//
-//		DevService devService = context.getBean(DevService.class);
-//		ProdService prodService = context.getBean(ProdService.class);
+		// Schedule tasks using the Scheduler
+		Scheduler scheduler = new Scheduler();
+		context.getBean(MyServiceOne.class).print(); // Example usage of getBean
 
-//		if (devService != null) {
-//			devService.print(); // Should print "Development Service" if profile is "dev"
-//		}
-//		if (prodService != null) {
-//			prodService.print(); // Should not be available if profile is "dev"
-//		}
+		DevService devService = context.getBean(DevService.class);
+		ProdService prodService = context.getBean(ProdService.class);
+
+		if (devService != null) {
+			devService.print(); // Should print "Development Service" if profile is "dev"
+		}
+		if (prodService != null) {
+			prodService.print(); // Should not be available if profile is "dev"
+		}
 //		// Use getBean to get MyScheduledService and schedule it
-//		MyScheduledService scheduledService = context.getBean(MyScheduledService.class);
-//		scheduler.schedule(scheduledService);
+		MyScheduledService scheduledService = context.getBean(MyScheduledService.class);
+		scheduler.schedule(scheduledService);
 
 		// Initialize event publisher
 		//ApplicationEventPublisher eventPublisher = context.getEventPublisher();
@@ -57,7 +57,7 @@ public class MyApplication implements Runnable {
 		//Thread.currentThread().join();
 
 		// Ensure scheduler shutdown is called on application exit
-		//Runtime.getRuntime().addShutdownHook(new Thread(scheduler::shutdown));
+		Runtime.getRuntime().addShutdownHook(new Thread(scheduler::shutdown));
 
 
 
@@ -66,8 +66,8 @@ public class MyApplication implements Runnable {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//myServiceOne.print();
-		//System.out.println(Arrays.toString(args));
+		myServiceOne.print();
+		System.out.println(Arrays.toString(args));
 		iService.print();
 		System.out.println(Arrays.toString(args));
 
