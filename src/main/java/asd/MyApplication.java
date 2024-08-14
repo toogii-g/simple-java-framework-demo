@@ -15,11 +15,13 @@ import java.util.Arrays;
 public class MyApplication implements Runnable {
 
 	@Autowired
-	private MyServiceOne myServiceOne;
+	private MyServiceOne iService;
 	@Autowired
 	private MyScheduledService myScheduledService;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
+	@Autowired
+	private EmailService emailService;
 
 	@Autowired
 	AppConfig appConfig;
@@ -30,6 +32,15 @@ public class MyApplication implements Runnable {
 		Scheduler scheduler = new Scheduler();
 		context.getBean(MyServiceOne.class).print(); // Example usage of getBean
 //
+		DevService devService = context.getBean(DevService.class);
+		ProdService prodService = context.getBean(ProdService.class);
+
+		if (devService != null) {
+			devService.print(); // Should print "Development Service" if profile is "dev"
+		}
+		if (prodService != null) {
+			prodService.print(); // Should not be available if profile is "dev"
+		}
 //		// Use getBean to get MyScheduledService and schedule it
 		MyScheduledService scheduledService = context.getBean(MyScheduledService.class);
 		scheduler.schedule(scheduledService);
@@ -38,7 +49,7 @@ public class MyApplication implements Runnable {
 		ApplicationEventPublisher eventPublisher = context.getEventPublisher();
 
 		// Publish a custom event
-		eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
+		//eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
 
 		// Keep the application running to observe scheduled tasks
 		Thread.currentThread().join();
@@ -47,13 +58,18 @@ public class MyApplication implements Runnable {
 		//Runtime.getRuntime().addShutdownHook(new Thread(scheduler::shutdown));
 		System.out.println("Anoj");
 
+
+
 }
 
 	@Override
 	public void run(String... args) throws Exception {
-		myServiceOne.print();
+		iService.print();
 		System.out.println(Arrays.toString(args));
 
 		System.out.println(appConfig.toString());
+
+		emailService.sendEmail();
+		System.out.println("Main thread finished: " + Thread.currentThread().getName());
 	}
 }
