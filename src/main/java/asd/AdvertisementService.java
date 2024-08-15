@@ -1,17 +1,17 @@
 package asd;
 
-import framework.annotation.Profile;
 import framework.annotation.Service;
 import framework.annotation.Value;
 
 @Service
-public class MyServiceOne implements IService{
+public class AdvertisementService {
 
     @Value("service-name")
-    private String name;
+    private String serviceName;
 
     public void print(){
-        System.out.println(name);
+        System.out.println(serviceName);
+        //iService.print();
     }
 
 }
