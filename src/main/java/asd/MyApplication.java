@@ -1,6 +1,6 @@
 package asd;
 
-import asd.Event.CustomEvent;
+import asd.event.CustomEvent;
 import asd.service.IContactService;
 import asd.service.ICustomerService;
 import framework.*;

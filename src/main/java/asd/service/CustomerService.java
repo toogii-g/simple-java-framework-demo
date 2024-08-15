@@ -1,6 +1,6 @@
 package asd.service;
 
-import asd.Event.CustomEvent;
+import asd.event.CustomEvent;
 import asd.dao.ICustomerDAO;
 import asd.domain.Customer;
 import asd.integration.ILogger;

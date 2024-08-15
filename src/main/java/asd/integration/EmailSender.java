@@ -1,6 +1,6 @@
 package asd.integration;
 
-import asd.Event.CustomEvent;
+import asd.event.CustomEvent;
 import framework.annotation.EventListener;
 import framework.annotation.Service;
 

@@ -1,6 +1,4 @@
-package asd.Event;
-import framework.annotation.EventListener;
-import framework.annotation.Service;
+package asd.event;
 
 public class CustomEventListener  {
 

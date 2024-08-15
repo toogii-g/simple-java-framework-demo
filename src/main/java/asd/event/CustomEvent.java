@@ -1,4 +1,4 @@
-package asd.Event;
+package asd.event;
 public class CustomEvent {
     private final String message;
 
