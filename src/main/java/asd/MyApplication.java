@@ -7,19 +7,19 @@ import framework.event.ApplicationEventPublisher;
 import framework.util.Runnable;
 import framework.util.Scheduler;
 import java.util.Arrays;
+
+
 public class MyApplication implements Runnable {
 
 	@Autowired
-	private MyServiceOne myServiceOne;
+	private AdvertisementService advertisementService;
 	@Autowired
 	private MyScheduledService myScheduledService;
 	@Autowired
 	private ApplicationEventPublisher eventPublisher;
-	//@Autowired
-	//@Qualifier("stripePaymentService")
-	//private static PaymentService paymentService;
 	@Autowired
-	private MyServiceOne iService;
+	@Qualifier("stripePaymentService")
+	private static PaymentService paymentService;
 	@Autowired
 	private EmailService emailService;
 
@@ -31,7 +31,7 @@ public class MyApplication implements Runnable {
 
 		// Schedule tasks using the Scheduler
 		Scheduler scheduler = new Scheduler();
-		context.getBean(MyServiceOne.class).print(); // Example usage of getBean
+		context.getBean(AdvertisementService.class).print(); // Example usage of getBean
 
 		DevService devService = context.getBean(DevService.class);
 		ProdService prodService = context.getBean(ProdService.class);
@@ -50,8 +50,8 @@ public class MyApplication implements Runnable {
 		ApplicationEventPublisher eventPublisher = context.getEventPublisher();
 
 		// Publish a custom event
-		//eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
-		//paymentService.processPayment();
+		eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
+		paymentService.processPayment();
 
 		// Keep the application running to observe scheduled tasks
 		//Thread.currentThread().join();
@@ -66,14 +66,12 @@ public class MyApplication implements Runnable {
 	@Override
 	public void run(String... args) throws Exception {
 
-		myServiceOne.print();
-		System.out.println(Arrays.toString(args));
-		iService.print();
+		advertisementService.print();
 		System.out.println(Arrays.toString(args));
 
 		System.out.println(appConfig.toString());
 
-		emailService.sendEmail();
+		//emailService.sendEmail();
 		System.out.println("Main thread finished: " + Thread.currentThread().getName());
 	}
 }

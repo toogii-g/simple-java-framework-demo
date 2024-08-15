@@ -1,16 +1,15 @@
 package asd;
 
 import framework.annotation.Autowired;
-import framework.annotation.Qualifier;
 import framework.annotation.Service;
 
 @Service
 public class MyServiceTwo {
 
-    @Autowired
-    private MyServiceOne myServiceOne;
+    //@Autowired
+    //private AdvertisementService advertisementService;
 
-    public void print(){
-        myServiceOne.print();
-    }
+    //public void print(){
+    //    advertisementService.print();
+    //}
 }
