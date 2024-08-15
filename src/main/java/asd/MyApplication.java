@@ -1,5 +1,8 @@
 package asd;
 
+//import Application.ITestConstructor;
+import Application.service.IContactService;
+import Application.service.ICustomerService;
 import framework.*;
 import framework.annotation.Autowired;
 import framework.annotation.Qualifier;
@@ -13,22 +16,29 @@ public class MyApplication implements Runnable {
 //	private MyServiceOne myServiceOne;
 //	@Autowired
 //	private MyScheduledService myScheduledService;
-	@Autowired
-	private ApplicationEventPublisher eventPublisher;
-	@Autowired
-	@Qualifier("stripePaymentService")
-	private static PaymentService paymentService;
-	@Autowired
-	private MyServiceOne iService;
-	@Autowired
-	private EmailService emailService;
+//	@Autowired
+//	private ApplicationEventPublisher eventPublisher;
+//	@Autowired
+//	@Qualifier("stripePaymentService")
+//	private static PaymentService paymentService;
+//	@Autowired
+//	private MyServiceOne iService;
+//	@Autowired
+//	private EmailService emailService;
+//
+//	@Autowired
+//	AppConfig appConfig;
+//	@Autowired
+//	private ITestConstructor testConstrcutor;
+
 
 	@Autowired
-	AppConfig appConfig;
-
+	private IContactService iContactService;
+	@Autowired
+	private ICustomerService iCustomerService;
 	public static void main(String[] args) throws Exception{
-	//	SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
-
+		SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
+		System.out.println("aaaaa");
 //		// Schedule tasks using the Scheduler
 //		Scheduler scheduler = new Scheduler();
 //		context.getBean(MyServiceOne.class).print(); // Example usage of getBean
@@ -66,14 +76,22 @@ public class MyApplication implements Runnable {
 	@Override
 	public void run(String... args) throws Exception {
 
-		//myServiceOne.print();
-		//System.out.println(Arrays.toString(args));
-		iService.print();
-		System.out.println(Arrays.toString(args));
+		System.out.println("Anoj...d");
+//		//myServiceOne.print();
+//		//System.out.println(Arrays.toString(args));
+//		iService.print();
+//		System.out.println(Arrays.toString(args));
+//
+//		System.out.println(appConfig.toString());
+//
+//		emailService.sendEmail();
+//		System.out.println("Main thread finished: " + Thread.currentThread().getName());
+//		//testConstrcutor.test();
+//		System.out.println("Anoj");
+//		iContactService.addContact("012-345-678", "johndoe@miu.edu");
+//		iCustomerService.addCustomer("John", "Dow");
 
-		System.out.println(appConfig.toString());
+		iContactService.addContact("012-345-678", "johndoe@miu.edu");
 
-		emailService.sendEmail();
-		System.out.println("Main thread finished: " + Thread.currentThread().getName());
 	}
 }
