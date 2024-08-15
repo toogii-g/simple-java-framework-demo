@@ -1,8 +1,8 @@
 package asd;
 
-//import Application.ITestConstructor;
-import Application.service.IContactService;
-import Application.service.ICustomerService;
+import asd.Event.CustomEvent;
+import asd.service.IContactService;
+import asd.service.ICustomerService;
 import framework.*;
 import framework.annotation.Autowired;
 import framework.annotation.Qualifier;
@@ -111,8 +111,8 @@ public class MyApplication implements Runnable {
 //		System.out.println("Main thread finished: " + Thread.currentThread().getName());
 //		//testConstrcutor.test();
 //		System.out.println("Anoj");
-//		iContactService.addContact("012-345-678", "johndoe@miu.edu");
-//		iCustomerService.addCustomer("John", "Dow");
+		iContactService.addContact("012-345-678", "johndoe@miu.edu");
+		iCustomerService.addCustomer("John", "Dow");
 
 		advertisementService.print();
 		System.out.println(Arrays.toString(args));

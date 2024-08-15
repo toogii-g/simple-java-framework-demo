@@ -1,9 +1,9 @@
 package asd.service;
 
-import Application.Event.CustomEvent;
-import Application.dao.ICustomerDAO;
-import Application.domain.Customer;
-import Application.integration.ILogger;
+import asd.Event.CustomEvent;
+import asd.dao.ICustomerDAO;
+import asd.domain.Customer;
+import asd.integration.ILogger;
 import framework.annotation.Autowired;
 import framework.annotation.Qualifier;
 import framework.annotation.Service;

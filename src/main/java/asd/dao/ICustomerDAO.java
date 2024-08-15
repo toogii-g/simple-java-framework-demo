@@ -1,7 +1,7 @@
 package asd.dao;
 
-import Application.domain.Contact;
-import Application.domain.Customer;
+
+import asd.domain.Customer;
 
 public interface ICustomerDAO {
     public void save(Customer customer);

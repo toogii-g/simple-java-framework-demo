@@ -1,7 +1,6 @@
 package asd.dao;
 
-import Application.domain.Contact;
-import Application.domain.Customer;
+import asd.domain.Customer;
 import framework.annotation.Service;
 
 import java.util.HashMap;

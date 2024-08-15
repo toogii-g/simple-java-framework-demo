@@ -1,8 +1,8 @@
 package asd.service;
 
-import Application.dao.IContactDAO;
-import Application.domain.Contact;
-import Application.integration.ILogger;
+import asd.dao.IContactDAO;
+import asd.domain.Contact;
+import asd.integration.ILogger;
 import framework.annotation.Autowired;
 import framework.annotation.Service;
 
@@ -10,12 +10,12 @@ import framework.annotation.Service;
 public class ContactService implements IContactService{
     @Autowired
     private IContactDAO iContactDAO;
-
+    @Autowired
     private ILogger iLogger;
 
     public ContactService(){}
 
-    @Autowired
+
     public ContactService(ILogger iLogger){
         this.iLogger = iLogger;
     }

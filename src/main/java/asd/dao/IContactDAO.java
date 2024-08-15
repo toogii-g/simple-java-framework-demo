@@ -1,6 +1,7 @@
 package asd.dao;
 
-import Application.domain.Contact;
+
+import asd.domain.Contact;
 
 public interface IContactDAO {
     public void save(Contact contact);
