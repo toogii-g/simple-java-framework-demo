@@ -32,32 +32,31 @@ public class MyApplication implements Runnable {
     @Autowired
     private ICustomerService iCustomerService;
 
+    @Autowired
+    AppConfig appConfig;
+
     public static void main(String[] args) throws Exception {
         SimpleJavaFrameworkContext context = SimpleJavaFramework.run(MyApplication.class, args);
 
-        // Schedule tasks using the Scheduler
+
         Scheduler scheduler = new Scheduler();
-        context.getBean(AdvertisementService.class).print(); // Example usage of getBean
+        context.getBean(AdvertisementService.class).print();
 
         DevService devService = context.getBean(DevService.class);
         ProdService prodService = context.getBean(ProdService.class);
 
         if (devService != null) {
-            devService.print(); // Should print "Development Service" if profile is "dev"
+            devService.print();
         }
         if (prodService != null) {
-            prodService.print(); // Should not be available if profile is "dev"
+            prodService.print();
         }
-        MyScheduledService scheduledService = context.getBean(MyScheduledService.class);
 
-        // Initialize event publisher
         ApplicationEventPublisher eventPublisher = context.getEventPublisher();
 
-        // Publish a custom event
         eventPublisher.publishEvent(new CustomEvent("Hello from Custom Event!"));
         paymentService.processPayment();
 
-        // Ensure scheduler shutdown is called on application exit
         Runtime.getRuntime().addShutdownHook(new Thread(scheduler::shutdown));
 
 
@@ -75,6 +74,10 @@ public class MyApplication implements Runnable {
         iContactService.addContact("012-345-678", "johndoe@miu.edu");
 
         System.out.println("Main thread finished: " + Thread.currentThread().getName());
+
+        System.out.println(appConfig.toString());
+
+        emailService.sendEmail();
 
     }
 }

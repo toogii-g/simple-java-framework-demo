@@ -11,7 +11,6 @@ public class AdvertisementService {
 
     public void print(){
         System.out.println(serviceName);
-        //iService.print();
     }
 
 }
